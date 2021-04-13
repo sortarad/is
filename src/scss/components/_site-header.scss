@@ -1,0 +1,14 @@
+.site-header {
+    padding: get-size('500') 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media-query('sm') {
+        padding: get-size('600') 0;
+    }
+
+    @include media-query('md') {
+        padding: get-size('700') 0;
+    }
+}

@@ -1,0 +1,23 @@
+.hero {
+    @include media-query('md') {
+        max-width: 80%;
+    }
+}
+
+.hero__title {
+    @include apply-utility('text', '500');
+
+    max-width: 80%;
+
+    @include media-query('md') {
+        @include apply-utility('text', '800');
+
+        max-width: 100%;
+    }
+}
+
+.hero__text {
+    @include media-query('md') {
+        @include apply-utility('text', '600');
+    }
+}

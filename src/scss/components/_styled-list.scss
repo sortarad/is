@@ -1,0 +1,35 @@
+.styled-list {
+    @include apply-utility('font', 'headings');
+
+    position: relative;
+
+    &::before,
+    li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -50vw;
+        width: 100vw;
+        background-color: rgba(get-color('light'), 0.15);
+        height: 2px;
+    }
+
+    li {
+        position: relative;
+        padding: get-size('300') 0;
+
+        &::before {
+            top: auto;
+            bottom: 0;
+        }
+
+        @include media-query('md') {
+            padding: get-size('400') 0;
+        }
+    }
+
+    @include media-query('md') {
+        @include apply-utility('text', '600');
+    }
+}

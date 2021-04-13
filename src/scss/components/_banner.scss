@@ -1,0 +1,73 @@
+.banner {
+    --image-width: 50vw;
+    --offset: -20vw;
+    --move-initial: calc((var(--image-width) * -1) + var(--offset));
+    --move-final: calc((var(--image-width) * -2) + var(--offset));
+
+    @include breakout('full');
+
+    position: relative;
+    overflow: hidden;
+    padding: 5vw 0 20vw;
+
+    span {
+        display: flex;
+        align-items: center;
+        width: var(--image-width);
+
+        img {
+            width: 80%;
+        }
+
+        &::after {
+            @include apply-utility('text', '600');
+
+            content: '\00B7';
+            color: get-color('dark');
+            line-height: 0;
+            width: 20%;
+            text-align: center;
+        }
+    }
+
+    @include media-query('md') {
+        --image-width: 30vw;
+
+        padding-bottom: 10vw;
+    }
+
+    @include media-query('lg') {
+        --image-width: 25vw;
+    }
+}
+
+.banner__inner {
+    width: fit-content;
+    min-width: 200vw;
+    display: flex;
+    position: relative;
+    transform: rotate(-5deg) translate3d(var(--move-initial), 0, 0);
+    animation: banner 10s linear infinite;
+    will-change: transform;
+    background: get-color('primary');
+    padding: get-size('300') 0;
+    border: 3px dashed get-color('dark');
+
+    @include media-query('md') {
+        padding: get-size('500') 0;
+    }
+
+    svg g {
+        fill: get-color('dark');
+    }
+}
+
+@keyframes banner {
+    0% {
+        transform: rotate(-5deg) translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: rotate(-5deg) translate3d(var(--move-final), 0, 0);
+    }
+}
