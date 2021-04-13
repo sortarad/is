@@ -13,7 +13,7 @@ for (const button of copyButtons) {
     button.addEventListener('click', () => {
         const text = button.getAttribute('data-copy-button');
 
-        navigator.clipboard.writeText(text).then(() => (button.innerText = 'Copied to clipboard!'));
+        navigator.clipboard.writeText(text).then(() => (button.innerText = 'Copied to clipboard'));
     });
 }
 
